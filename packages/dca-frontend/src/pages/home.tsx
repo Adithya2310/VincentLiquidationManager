@@ -20,12 +20,13 @@ export const Home: React.FC = () => {
       <div className="w-full max-w-4xl mx-auto">
         <div className="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 shadow-sm w-full">
           <PageHeader
-            title="Vincent wBTC DCA Agent"
-            subtitle="Automated Dollar-Cost Averaging"
+            title="Vincent Liquidation Monitor"
+            subtitle="Automated liquidation when positions breach thresholds"
             description={
               <>
-                This app uses the Vincent platform to securely and verifiably execute dollar-cost
-                averaging strategies for your crypto investments. Learn more about{' '}
+                This app uses the Vincent platform to securely and verifiably monitor users and
+                liquidate positions on Sepolia when they become under-collateralized. Learn more
+                about{' '}
                 <a
                   href="https://docs.heyvincent.ai/"
                   target="_blank"
@@ -51,10 +52,10 @@ export const Home: React.FC = () => {
               style={{ backgroundColor: 'transparent' }}
             >
               <TabsTrigger value={Tab.CreateDCA} className="data-[state=active]:bg-[#FF4205]">
-                Create DCA
+                Create Monitor
               </TabsTrigger>
               <TabsTrigger value={Tab.ActiveDCAs} className="data-[state=active]:bg-[#FF4205]">
-                Active DCAs
+                Active Monitors
               </TabsTrigger>
               <TabsTrigger value={Tab.Wallet} className="data-[state=active]:bg-[#FF4205]">
                 Wallet

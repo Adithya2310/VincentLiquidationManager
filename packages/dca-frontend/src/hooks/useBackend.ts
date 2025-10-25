@@ -18,8 +18,9 @@ export type DCA = {
   failReason: string;
   data: {
     name: string;
-    purchaseAmount: number;
-    purchaseIntervalHuman: string;
+    usersToMonitor: string[];
+    purchaseAmount?: string | number;
+    purchaseIntervalHuman?: string;
     vincentAppVersion: number;
     pkpInfo: {
       ethAddress: string;
@@ -32,8 +33,7 @@ export type DCA = {
 
 export interface CreateDCARequest {
   name: string;
-  purchaseAmount: string;
-  purchaseIntervalHuman: string;
+  usersToMonitor: string[];
 }
 
 export const useBackend = () => {
@@ -83,8 +83,8 @@ export const useBackend = () => {
   );
 
   const createDCA = useCallback(
-    async (dca: CreateDCARequest) => {
-      return sendRequest<DCA>('/schedule', 'POST', dca);
+    async (payload: CreateDCARequest) => {
+      return sendRequest<DCA>('/schedule', 'POST', payload);
     },
     [sendRequest]
   );

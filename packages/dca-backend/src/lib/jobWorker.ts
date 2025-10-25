@@ -2,7 +2,7 @@ import * as Sentry from '@sentry/node';
 import consola from 'consola';
 
 import { createAgenda, getAgenda } from './agenda/agendaClient';
-import { executeDCASwapJobDef } from './agenda/jobs';
+import { executeLiquidationJobDef } from './agenda/jobs';
 
 // Function to create and configure a new agenda instance
 export async function startWorker() {
@@ -10,12 +10,12 @@ export async function startWorker() {
 
   const agenda = getAgenda();
 
-  agenda.define(executeDCASwapJobDef.jobName, async (job: executeDCASwapJobDef.JobType) =>
-    Sentry.withIsolationScope(async (scope) => {
+  agenda.define(executeLiquidationJobDef.jobName, async (job: executeLiquidationJobDef.JobType) =>
+    Sentry.withIsolationScope(async (scope: Sentry.Scope) => {
       // TODO: add job-aware logic such as cool-downs in case of repeated failures here
 
       try {
-        await executeDCASwapJobDef.processJob(job, scope);
+        await executeLiquidationJobDef.processJob(job, scope);
       } catch (err) {
         scope.captureException(err);
         const error = err as Error;

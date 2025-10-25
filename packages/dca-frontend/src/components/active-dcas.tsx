@@ -12,7 +12,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { DialogueEditDCA } from '@/components/dialogue-edit-dca';
-import { FREQUENCIES } from '@/components/select-frequency';
+// import { FREQUENCIES } from '@/components/select-frequency';
 import { Spinner } from '@/components/ui/spinner';
 import { DialogueDcaFailedDetails } from '@/components/dialogue-dca-failed-details';
 
@@ -35,7 +35,7 @@ function renderDCASchedulesTable(
               color: 'var(--footer-text-color, #121212)',
             }}
           >
-            Amount (USD)
+            Users To Monitor
           </TableHead>
           <TableHead
             style={{
@@ -80,7 +80,7 @@ function renderDCASchedulesTable(
             lastFinishedAt,
             failedAt,
             _id: uniqueKey,
-            data: { purchaseAmount, purchaseIntervalHuman, updatedAt },
+            data: { updatedAt },
           } = dca;
 
           const failedAfterLastRun =
@@ -95,7 +95,7 @@ function renderDCASchedulesTable(
                   color: 'var(--footer-text-color, #121212)',
                 }}
               >
-                ${purchaseAmount}
+                {(dca.data.usersToMonitor || []).join(', ')}
               </TableCell>
               <TableCell
                 style={{
@@ -103,8 +103,7 @@ function renderDCASchedulesTable(
                   color: 'var(--footer-text-color, #121212)',
                 }}
               >
-                {FREQUENCIES.find((freq) => freq.value === purchaseIntervalHuman)?.label ||
-                  purchaseIntervalHuman}
+                10 seconds
               </TableCell>
               <TableCell
                 style={{

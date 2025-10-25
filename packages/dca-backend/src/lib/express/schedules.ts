@@ -43,10 +43,7 @@ export const handleCreateScheduleRoute = async (
     },
   });
 
-  const schedule = await createJob(
-    { ...scheduleParams },
-    { interval: scheduleParams.purchaseIntervalHuman }
-  );
+  const schedule = await createJob({ ...scheduleParams }, { interval: '10 seconds' });
   res.status(201).json({ data: schedule.toJson(), success: true });
 };
 

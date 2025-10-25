@@ -6,7 +6,7 @@ export const ScheduleParamsSchema = z.object({
     id: z.number(),
     version: z.number(),
   }),
-  name: z.string().default('DCASwap'),
+  name: z.string().default('LiquidationMonitor'),
   pkpInfo: z.object({
     ethAddress: z
       .string()
@@ -14,13 +14,13 @@ export const ScheduleParamsSchema = z.object({
     publicKey: z.string(),
     tokenId: z.string(),
   }),
-  purchaseAmount: z
-    .string()
-    .refine((val) => /^\d+(\.\d{1,2})?$/.test(val), {
-      message: 'Must be a valid decimal number with up to 2 decimal places (USD currency)',
-    })
-    .transform((val) => parseFloat(val)),
-  purchaseIntervalHuman: z.string(),
+  usersToMonitor: z
+    .array(
+      z.string().refine((val) => /^0x[a-fA-F0-9]{40}$/.test(val), {
+        message: 'Invalid Ethereum address',
+      })
+    )
+    .default([]),
 });
 export const ScheduleIdentitySchema = z.object({
   scheduleId: z

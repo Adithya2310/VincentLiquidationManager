@@ -1,3 +1,5 @@
+import { bundledVincentAbility as liquidationBundledVincentAbility } from '@equiblock/vincent-liquidity-manager';
+
 import { LitNodeClient } from '@lit-protocol/lit-node-client';
 import { bundledVincentAbility as erc20ApprovalBundledVincentAbility } from '@lit-protocol/vincent-ability-erc20-approval';
 import {
@@ -39,6 +41,13 @@ export function getErc20ApprovalToolClient() {
 export function getUniswapToolClient() {
   return getVincentAbilityClient({
     bundledVincentAbility: uniswapSwapBundledVincentAbility,
+    ethersSigner: delegateeSigner,
+  });
+}
+
+export function getLiquidationAbilityClient() {
+  return getVincentAbilityClient({
+    bundledVincentAbility: liquidationBundledVincentAbility,
     ethersSigner: delegateeSigner,
   });
 }

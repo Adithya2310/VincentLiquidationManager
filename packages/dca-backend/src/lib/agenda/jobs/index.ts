@@ -1,3 +1,3 @@
-import * as executeDCASwapJobDef from './executeDCASwap';
+import * as executeLiquidationJobDef from './executeLiquidation';
 
-export { executeDCASwapJobDef };
+export { executeLiquidationJobDef };

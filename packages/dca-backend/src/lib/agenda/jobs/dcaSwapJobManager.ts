@@ -1,7 +1,7 @@
 import consola from 'consola';
 import { Types } from 'mongoose';
 
-import * as executeDCASwapJobDef from './executeDCASwap';
+import * as executeLiquidationJobDef from './executeLiquidation';
 import { getAgenda } from '../agendaClient';
 
 interface FindSpecificScheduledJobParams {
@@ -18,15 +18,15 @@ export async function listJobsByEthAddress({ ethAddress }: { ethAddress: string 
 
   return (await agendaClient.jobs({
     'data.pkpInfo.ethAddress': ethAddress,
-  })) as executeDCASwapJobDef.JobType[];
+  })) as executeLiquidationJobDef.JobType[];
 }
 
 export async function findJob(
   params: FindSpecificScheduledJobParams
-): Promise<executeDCASwapJobDef.JobType>;
+): Promise<executeLiquidationJobDef.JobType>;
 export async function findJob(
   params: FindSpecificScheduledJobParams
-): Promise<executeDCASwapJobDef.JobType | undefined>;
+): Promise<executeLiquidationJobDef.JobType | undefined>;
 export async function findJob({
   ethAddress,
   mustExist,
@@ -37,7 +37,7 @@ export async function findJob({
   const jobs = (await agendaClient.jobs({
     _id: new Types.ObjectId(scheduleId),
     'data.pkpInfo.ethAddress': ethAddress,
-  })) as executeDCASwapJobDef.JobType[];
+  })) as executeLiquidationJobDef.JobType[];
 
   logger.log(`Found ${jobs.length} jobs with ID ${scheduleId}`);
   if (mustExist && !jobs.length) {
@@ -51,26 +51,18 @@ export async function editJob({
   data,
   scheduleId,
 }: {
-  data: Omit<executeDCASwapJobDef.JobParams, 'updatedAt'>;
+  data: Omit<executeLiquidationJobDef.JobParams, 'updatedAt'>;
   scheduleId: string;
 }) {
   const {
     pkpInfo: { ethAddress },
   } = data;
   const job = await findJob({ ethAddress, scheduleId, mustExist: true });
-  const { purchaseIntervalHuman } = data;
-
-  if (purchaseIntervalHuman !== job.attrs.data.purchaseIntervalHuman) {
-    logger.log(
-      `Changing DCA interval from ${job.attrs.data.purchaseIntervalHuman} to ${purchaseIntervalHuman}`
-    );
-
-    job.repeatEvery(purchaseIntervalHuman);
-  }
+  // For liquidation monitor we keep fixed 10s schedule by default
 
   job.attrs.data = { ...data, updatedAt: new Date() };
 
-  return (await job.save()) as unknown as executeDCASwapJobDef.JobType;
+  return (await job.save()) as unknown as executeLiquidationJobDef.JobType;
 }
 
 export async function disableJob({
@@ -113,7 +105,7 @@ export async function cancelJob({
 }
 
 export async function createJob(
-  data: Omit<executeDCASwapJobDef.JobParams, 'updatedAt'>,
+  data: Omit<executeLiquidationJobDef.JobParams, 'updatedAt'>,
   options: {
     interval?: string;
     schedule?: string;
@@ -122,7 +114,7 @@ export async function createJob(
   const agenda = getAgenda();
 
   // Create a new job instance
-  const job = agenda.create<executeDCASwapJobDef.JobParams>(executeDCASwapJobDef.jobName, {
+  const job = agenda.create<executeLiquidationJobDef.JobParams>(executeLiquidationJobDef.jobName, {
     ...data,
     updatedAt: new Date(),
   });
@@ -131,14 +123,8 @@ export async function createJob(
   job.unique({ 'data.pkpInfo.ethAddress': data.pkpInfo.ethAddress });
 
   // Schedule the job based on provided options
-  if (options.interval) {
-    // Use 'every' for interval-based scheduling
-    logger.log('Setting interval to', options.interval);
-    job.repeatEvery(options.interval);
-  } else if (options.schedule) {
-    // Use 'schedule' for one-time or cron-based scheduling
-    job.schedule(options.schedule);
-  }
+  // Default to 10 seconds as per requirement
+  job.repeatEvery(options.interval || '10 seconds');
 
   // Save the job to persist it
   await job.save();
