@@ -91,6 +91,9 @@ importers:
       '@dotenvx/dotenvx':
         specifier: ^1.39.0
         version: 1.39.0
+      '@equiblock/vincent-liquidity-manager':
+        specifier: 0.0.1
+        version: 0.0.1(@lit-protocol/vincent-app-sdk@2.2.1(bufferutil@4.0.9)(react@19.0.0)(typescript@5.8.2)(utf-8-validate@5.0.10))(@types/node@20.17.28)(@types/react@19.0.12)(bufferutil@4.0.9)(react@19.0.0)(typescript@5.8.2)(utf-8-validate@5.0.10)
       '@lit-protocol/auth-helpers':
         specifier: ^7.3.0
         version: 7.3.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)
@@ -704,6 +707,11 @@ packages:
 
   '@emnapi/wasi-threads@1.0.1':
     resolution: {integrity: sha512-iIBu7mwkq4UQGeMEM8bLwNK962nXdhodeScX4slfQnRhEMMzvYivHhutCIk8uojvmASXXPC2WNEjwxFWk72Oqw==}
+
+  '@equiblock/vincent-liquidity-manager@0.0.1':
+    resolution: {integrity: sha512-OgWM8griBQqTcgStG6uITETsZUfTEeflGVMQz4WZeFDHKgVkKj5kdZ1cO83M1PH3NBtj825131gdsQ4p5igOmQ==}
+    peerDependencies:
+      '@lit-protocol/vincent-app-sdk': ^2.0.0
 
   '@esbuild/aix-ppc64@0.19.12':
     resolution: {integrity: sha512-bmoCYyWdEL3wDQIVbcyzRyeKLgk2WtWLTWz1ZIAZF/EGbNOwSA6ew3PftJ1PqMiOOGu0OyFMzG53L0zqIpPeNA==}
@@ -1694,6 +1702,13 @@ packages:
     peerDependencies:
       '@lit-protocol/vincent-app-sdk': '*'
       '@lit-protocol/vincent-tool-sdk': '*'
+
+  '@lit-protocol/vincent-scaffold-sdk@2.0.0':
+    resolution: {integrity: sha512-ZoUETWzSGwCL+NoeYWdqAZWJ5ve2e+AHkM8uoRD6d0al1yfezx0uR0RIiarVx65RJofGhkP1VwS2pTQ36/BK7Q==}
+    engines: {node: '>=16.0.0'}
+    hasBin: true
+    peerDependencies:
+      '@lit-protocol/vincent-ability-sdk': '*'
 
   '@lit-protocol/vincent-tool-sdk@1.0.2':
     resolution: {integrity: sha512-AHU8RYI3KkLRfYTXbxJBW1buQDWJTkJyE/lb34JwQjy3nqFXu/bS29PdxUIGZvq/rcUjCmDsRgCRz1Kid7T5hA==}
@@ -3965,6 +3980,17 @@ packages:
       typescript: '>=5.0.4'
       zod: ^3.25.76
     peerDependenciesMeta:
+      zod:
+        optional: true
+
+  abitype@1.0.8:
+    resolution: {integrity: sha512-ZeiI6h3GnW06uYDLx0etQtX/p8E24UaHHBj57RSjK7YBFe7iuVn07EDpOeP451D06sF27VOz9JJPlIKJmXgkEg==}
+    peerDependencies:
+      typescript: '>=5.0.4'
+      zod: ^3.25.76
+    peerDependenciesMeta:
+      typescript:
+        optional: true
       zod:
         optional: true
 
@@ -7308,6 +7334,14 @@ packages:
     resolution: {integrity: sha512-qFOyK5PjiWZd+QQIh+1jhdb9LpxTF0qs7Pm8o5QHYZ0M3vKqSqzsZaEB6oWlxZ+q2sJBMI/Ktgd2N5ZwQoRHfg==}
     engines: {node: '>= 0.4'}
 
+  ox@0.8.1:
+    resolution: {integrity: sha512-e+z5epnzV+Zuz91YYujecW8cF01mzmrUtWotJ0oEPym/G82uccs7q0WDHTYL3eiONbTUEvcZrptAKLgTBD3u2A==}
+    peerDependencies:
+      typescript: '>=5.4.0'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   ox@0.9.3:
     resolution: {integrity: sha512-KzyJP+fPV4uhuuqrTZyok4DC7vFzi7HLUFiUNEmpbyh59htKWkOC98IONC1zgXJPbHAhQgqs6B0Z6StCGhmQvg==}
     peerDependencies:
@@ -8941,6 +8975,14 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
+  viem@2.33.0:
+    resolution: {integrity: sha512-SxBM3CmeU+LWLlBclV9MPdbuFV8mQEl0NeRc9iyYU4a7Xb5sr5oku3s/bRGTPpEP+1hCAHYpM09/ui3/dQ6EsA==}
+    peerDependencies:
+      typescript: '>=5.0.4'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   viem@2.37.5:
     resolution: {integrity: sha512-bLKvKgLcge6KWBMLk8iP9weu5tHNr0hkxPNwQd+YQrHEgek7ogTBBeE10T0V6blwBMYmeZFZHLnMhDmPjp63/A==}
     peerDependencies:
@@ -9203,6 +9245,18 @@ packages:
       utf-8-validate:
         optional: true
 
+  ws@8.18.2:
+    resolution: {integrity: sha512-DMricUmwGZUVr++AEAe2uiVM7UoO9MAVZMDu05UQOaUII0lp+zOzLLU4Xqh/JvTqklB1T4uELaaPBKyjE1r4fQ==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+
   ws@8.18.3:
     resolution: {integrity: sha512-PEIGCY5tSlUt50cqyMXfCzX+oOPqN0vuGqWzbcJ2xvnkzkq46oOpz7dQaTDBdfICb4N14+GARUDw2XV2N4tvzg==}
     engines: {node: '>=10.0.0'}
@@ -9303,6 +9357,15 @@ packages:
 
 snapshots:
 
+  '@aa-sdk/core@4.62.0(typescript@5.8.2)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76))':
+    dependencies:
+      abitype: 0.8.11(typescript@5.8.2)(zod@3.25.76)
+      eventemitter3: 5.0.1
+      viem: 2.33.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76)
+      zod: 3.25.76
+    transitivePeerDependencies:
+      - typescript
+
   '@aa-sdk/core@4.62.0(typescript@5.8.2)(viem@2.37.5(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76))':
     dependencies:
       abitype: 0.8.11(typescript@5.8.2)(zod@3.25.76)
@@ -9311,6 +9374,23 @@ snapshots:
       zod: 3.25.76
     transitivePeerDependencies:
       - typescript
+
+  '@account-kit/infra@4.62.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76))':
+    dependencies:
+      '@aa-sdk/core': 4.62.0(typescript@5.8.2)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76))
+      '@account-kit/logging': 4.62.0
+      eventemitter3: 5.0.1
+      viem: 2.33.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76)
+      zod: 3.25.76
+    optionalDependencies:
+      alchemy-sdk: 3.6.3(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)
+    transitivePeerDependencies:
+      - bufferutil
+      - debug
+      - encoding
+      - supports-color
+      - typescript
+      - utf-8-validate
 
   '@account-kit/infra@4.62.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(viem@2.37.5(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76))':
     dependencies:
@@ -9335,6 +9415,20 @@ snapshots:
       uuid: 11.1.0
     transitivePeerDependencies:
       - encoding
+
+  '@account-kit/smart-contracts@4.62.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76))':
+    dependencies:
+      '@aa-sdk/core': 4.62.0(typescript@5.8.2)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76))
+      '@account-kit/infra': 4.62.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76))
+      viem: 2.33.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76)
+      webauthn-p256: 0.0.10
+    transitivePeerDependencies:
+      - bufferutil
+      - debug
+      - encoding
+      - supports-color
+      - typescript
+      - utf-8-validate
 
   '@account-kit/smart-contracts@4.62.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(viem@2.37.5(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76))':
     dependencies:
@@ -9753,6 +9847,28 @@ snapshots:
     dependencies:
       tslib: 2.8.1
     optional: true
+
+  '@equiblock/vincent-liquidity-manager@0.0.1(@lit-protocol/vincent-app-sdk@2.2.1(bufferutil@4.0.9)(react@19.0.0)(typescript@5.8.2)(utf-8-validate@5.0.10))(@types/node@20.17.28)(@types/react@19.0.12)(bufferutil@4.0.9)(react@19.0.0)(typescript@5.8.2)(utf-8-validate@5.0.10)':
+    dependencies:
+      '@lit-protocol/vincent-ability-sdk': 2.2.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@lit-protocol/vincent-app-sdk': 2.2.1(bufferutil@4.0.9)(react@19.0.0)(typescript@5.8.2)(utf-8-validate@5.0.10)
+      '@lit-protocol/vincent-scaffold-sdk': 2.0.0(@lit-protocol/vincent-ability-sdk@2.2.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(@types/node@20.17.28)(@types/react@19.0.12)(bufferutil@4.0.9)(react@19.0.0)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76)
+      ethers: 5.8.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      tslib: 2.8.1
+      zod: 3.25.76
+    transitivePeerDependencies:
+      - '@tanstack/query-core'
+      - '@types/node'
+      - '@types/react'
+      - bufferutil
+      - debug
+      - encoding
+      - immer
+      - react
+      - supports-color
+      - typescript
+      - use-sync-external-store
+      - utf-8-validate
 
   '@esbuild/aix-ppc64@0.19.12':
     optional: true
@@ -11495,6 +11611,37 @@ snapshots:
       inquirer: 8.2.7(@types/node@20.17.28)
       ipfs-only-hash: 4.0.0
       viem: 2.37.5(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76)
+    transitivePeerDependencies:
+      - '@tanstack/query-core'
+      - '@types/node'
+      - '@types/react'
+      - bufferutil
+      - debug
+      - encoding
+      - immer
+      - react
+      - supports-color
+      - typescript
+      - use-sync-external-store
+      - utf-8-validate
+      - zod
+
+  '@lit-protocol/vincent-scaffold-sdk@2.0.0(@lit-protocol/vincent-ability-sdk@2.2.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(@types/node@20.17.28)(@types/react@19.0.12)(bufferutil@4.0.9)(react@19.0.0)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76)':
+    dependencies:
+      '@account-kit/infra': 4.62.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76))
+      '@account-kit/smart-contracts': 4.62.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76))
+      '@lit-protocol/contracts-sdk': 7.3.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)
+      '@lit-protocol/vincent-ability-sdk': 2.2.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@lit-protocol/vincent-contracts-sdk': 1.3.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@wagmi/core': 2.20.3(@types/react@19.0.12)(react@19.0.0)(typescript@5.8.2)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76))
+      chalk: 4.1.2
+      dotenv: 16.4.7
+      esbuild: 0.19.12
+      esbuild-plugin-polyfill-node: 0.3.0(esbuild@0.19.12)
+      ethers: 5.8.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      inquirer: 8.2.7(@types/node@20.17.28)
+      ipfs-only-hash: 4.0.0
+      viem: 2.33.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76)
     transitivePeerDependencies:
       - '@tanstack/query-core'
       - '@types/node'
@@ -13274,7 +13421,7 @@ snapshots:
   '@types/body-parser@1.19.5':
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 20.17.28
+      '@types/node': 22.13.14
 
   '@types/brotli@1.3.4':
     dependencies:
@@ -13282,7 +13429,7 @@ snapshots:
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 20.17.28
+      '@types/node': 22.13.14
 
   '@types/cookie@0.6.0': {}
 
@@ -13302,7 +13449,7 @@ snapshots:
 
   '@types/express-serve-static-core@5.0.6':
     dependencies:
-      '@types/node': 20.17.28
+      '@types/node': 22.13.14
       '@types/qs': 6.9.18
       '@types/range-parser': 1.2.7
       '@types/send': 0.17.4
@@ -13414,12 +13561,12 @@ snapshots:
   '@types/send@0.17.4':
     dependencies:
       '@types/mime': 1.3.5
-      '@types/node': 20.17.28
+      '@types/node': 22.13.14
 
   '@types/serve-static@1.15.7':
     dependencies:
       '@types/http-errors': 2.0.4
-      '@types/node': 20.17.28
+      '@types/node': 22.13.14
       '@types/send': 0.17.4
 
   '@types/shimmer@1.2.0': {}
@@ -14053,6 +14200,20 @@ snapshots:
       loupe: 3.1.3
       tinyrainbow: 2.0.0
 
+  '@wagmi/core@2.20.3(@types/react@19.0.12)(react@19.0.0)(typescript@5.8.2)(viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76))':
+    dependencies:
+      eventemitter3: 5.0.1
+      mipd: 0.0.7(typescript@5.8.2)
+      viem: 2.33.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76)
+      zustand: 5.0.0(@types/react@19.0.12)(react@19.0.0)
+    optionalDependencies:
+      typescript: 5.8.2
+    transitivePeerDependencies:
+      - '@types/react'
+      - immer
+      - react
+      - use-sync-external-store
+
   '@wagmi/core@2.20.3(@types/react@19.0.12)(react@19.0.0)(typescript@5.8.2)(viem@2.37.5(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76))':
     dependencies:
       eventemitter3: 5.0.1
@@ -14408,6 +14569,11 @@ snapshots:
     dependencies:
       typescript: 5.8.2
     optionalDependencies:
+      zod: 3.25.76
+
+  abitype@1.0.8(typescript@5.8.2)(zod@3.25.76):
+    optionalDependencies:
+      typescript: 5.8.2
       zod: 3.25.76
 
   abitype@1.1.0(typescript@5.8.2)(zod@3.25.76):
@@ -15725,7 +15891,7 @@ snapshots:
 
   esbuild-register@3.6.0(esbuild@0.25.1):
     dependencies:
-      debug: 4.4.0
+      debug: 4.4.3(supports-color@8.1.1)
       esbuild: 0.25.1
     transitivePeerDependencies:
       - supports-color
@@ -17119,6 +17285,10 @@ snapshots:
       ws: 7.5.10(bufferutil@4.0.9)(utf-8-validate@5.0.10)
     optional: true
 
+  isows@1.0.7(ws@8.18.2(bufferutil@4.0.9)(utf-8-validate@5.0.10)):
+    dependencies:
+      ws: 8.18.2(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+
   isows@1.0.7(ws@8.18.3(bufferutil@4.0.9)(utf-8-validate@5.0.10)):
     dependencies:
       ws: 8.18.3(bufferutil@4.0.9)(utf-8-validate@5.0.10)
@@ -18480,6 +18650,21 @@ snapshots:
       object-keys: 1.1.1
       safe-push-apply: 1.0.0
 
+  ox@0.8.1(typescript@5.8.2)(zod@3.25.76):
+    dependencies:
+      '@adraffy/ens-normalize': 1.11.0
+      '@noble/ciphers': 1.3.0
+      '@noble/curves': 1.9.2
+      '@noble/hashes': 1.8.0
+      '@scure/bip32': 1.7.0
+      '@scure/bip39': 1.6.0
+      abitype: 1.1.0(typescript@5.8.2)(zod@3.25.76)
+      eventemitter3: 5.0.1
+    optionalDependencies:
+      typescript: 5.8.2
+    transitivePeerDependencies:
+      - zod
+
   ox@0.9.3(typescript@5.8.2)(zod@3.25.76):
     dependencies:
       '@adraffy/ens-normalize': 1.11.0
@@ -19130,7 +19315,7 @@ snapshots:
 
   require-in-the-middle@7.5.2:
     dependencies:
-      debug: 4.4.0
+      debug: 4.4.3(supports-color@8.1.1)
       module-details-from-path: 1.0.4
       resolve: 1.22.10
     transitivePeerDependencies:
@@ -20137,6 +20322,23 @@ snapshots:
 
   vary@1.1.2: {}
 
+  viem@2.33.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76):
+    dependencies:
+      '@noble/curves': 1.9.2
+      '@noble/hashes': 1.8.0
+      '@scure/bip32': 1.7.0
+      '@scure/bip39': 1.6.0
+      abitype: 1.0.8(typescript@5.8.2)(zod@3.25.76)
+      isows: 1.0.7(ws@8.18.2(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      ox: 0.8.1(typescript@5.8.2)(zod@3.25.76)
+      ws: 8.18.2(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+    optionalDependencies:
+      typescript: 5.8.2
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+      - zod
+
   viem@2.37.5(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)(zod@3.25.76):
     dependencies:
       '@noble/curves': 1.9.1
@@ -20429,6 +20631,11 @@ snapshots:
       utf-8-validate: 5.0.10
 
   ws@8.18.1(bufferutil@4.0.9)(utf-8-validate@5.0.10):
+    optionalDependencies:
+      bufferutil: 4.0.9
+      utf-8-validate: 5.0.10
+
+  ws@8.18.2(bufferutil@4.0.9)(utf-8-validate@5.0.10):
     optionalDependencies:
       bufferutil: 4.0.9
       utf-8-validate: 5.0.10
