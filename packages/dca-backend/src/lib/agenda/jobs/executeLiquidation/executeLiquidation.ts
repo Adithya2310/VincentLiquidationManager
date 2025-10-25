@@ -20,12 +20,12 @@ export type JobParams = {
   usersToMonitor: string[];
 };
 
-const SEPOLIA_RPC_URL = 'https://rpc.sepolia.org/';
 const VAULT_ADDRESS = '0x5cB49a8fEfaB8F0ac85D84bD5B7A87ccE236C6ef';
 
 const vaultAbi = ['function isLiquidatable(address) view returns (bool)'];
 
-const { VINCENT_APP_ID } = env;
+const { BASE_RPC_URL, VINCENT_APP_ID } = env;
+const SEPOLIA_RPC_URL = BASE_RPC_URL;
 
 export async function executeLiquidation(job: JobType, sentryScope: Sentry.Scope): Promise<void> {
   try {
