@@ -1,12 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { ethers } from 'ethers';
-import { LogOut, RefreshCcw, Copy, Check, WalletIcon, ArrowDownToLine } from 'lucide-react';
+import { LogOut, Copy, Check, WalletIcon, ArrowDownToLine } from 'lucide-react';
 
 import { useJwtContext } from '@lit-protocol/vincent-app-sdk/react';
 
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { Spinner } from '@/components/ui/spinner';
 import { WalletModal } from '@/components/wallet-modal';
 import { env } from '@/config/env';
 import { useChain } from '@/hooks/useChain';
@@ -20,10 +18,6 @@ const formatAddress = (address: string | undefined) => {
 
 export const Wallet: React.FC = () => {
   const { chain, provider, usdcContract, wbtcContract } = useChain();
-  const [ethBalance, setEthBalance] = useState<string>('0');
-  const [usdcBalance, setUsdcBalance] = useState<string>('0');
-  const [wbtcBalance, setWbtcBalance] = useState<string>('0');
-  const [isLoadingBalance, setIsLoadingBalance] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -34,24 +28,16 @@ export const Wallet: React.FC = () => {
     if (!authInfo?.pkp.ethAddress) return;
 
     try {
-      setIsLoadingBalance(true);
       setError(null);
 
-      const [ethBalanceWei, usdcBalance, wbtcBalanceWei] = await Promise.all([
-        provider.getBalance(authInfo?.pkp.ethAddress),
-        usdcContract.balanceOf(authInfo?.pkp.ethAddress),
-        wbtcContract.balanceOf(authInfo?.pkp.ethAddress),
-      ]);
-
-      setEthBalance(ethers.utils.formatUnits(ethBalanceWei, 18));
-      setUsdcBalance(ethers.utils.formatUnits(usdcBalance, 6));
-      setWbtcBalance(ethers.utils.formatUnits(wbtcBalanceWei, 8));
-
-      setIsLoadingBalance(false);
+      // const [ethBalanceWei, usdcBalance, wbtcBalanceWei] = await Promise.all([
+      //   provider.getBalance(authInfo?.pkp.ethAddress),
+      //   usdcContract.balanceOf(authInfo?.pkp.ethAddress),
+      //   wbtcContract.balanceOf(authInfo?.pkp.ethAddress),
+      // ]);
     } catch (err: unknown) {
       console.error('Error fetching PKP balances:', err);
       setError(`Failed to fetch wallet balance`);
-      setIsLoadingBalance(false);
     }
   }, [authInfo, provider, usdcContract, wbtcContract]);
 
@@ -146,9 +132,9 @@ export const Wallet: React.FC = () => {
           </a>
         </div> */}
 
-        <Separator />
+        {/* <Separator /> */}
 
-        <div className="flex items-center justify-between">
+        {/* <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <img src="/external-logos/eth.svg" alt="ETH" className="w-4 h-4" />
             <span
@@ -220,7 +206,7 @@ export const Wallet: React.FC = () => {
           >
             {isLoadingBalance ? 'Loading...' : `${parseFloat(wbtcBalance).toFixed(6)} WBTC`}
           </span>
-        </div>
+        </div> */}
       </div>
 
       {error && (
@@ -244,7 +230,7 @@ export const Wallet: React.FC = () => {
       )}
 
       <div className="flex flex-col sm:flex-row gap-2">
-        <Button className="flex-1 min-w-0" disabled={isLoadingBalance} onClick={fetchPkpBalance}>
+        {/* <Button className="flex-1 min-w-0" disabled={isLoadingBalance} onClick={fetchPkpBalance}>
           {isLoadingBalance ? (
             <>
               <Spinner variant="destructive" size="sm" />{' '}
@@ -256,7 +242,7 @@ export const Wallet: React.FC = () => {
               <span className="truncate">Refresh Balance</span>
             </>
           )}
-        </Button>
+        </Button> */}
         <Button className="flex-1 min-w-0" onClick={() => setIsModalOpen(true)}>
           <ArrowDownToLine className="flex-shrink-0" /> <span className="truncate">Deposit</span>
         </Button>
