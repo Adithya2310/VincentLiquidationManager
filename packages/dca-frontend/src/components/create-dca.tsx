@@ -61,8 +61,9 @@ export const CreateDCA: React.FC<CreateDCAProps> = ({ onCreate }) => {
                 color: 'var(--footer-text-color, #121212)',
               }}
             >
-              This DCA agent automatically purchases wBTC with a specific amount of USDC on your
-              predefined schedule.
+              This Liquidation Agent automatically monitors users who deposit collateral in
+              equiblock and liquidate positions when they become under-collateralized. predefined
+              schedule.
             </p>
             <p
               className="text-sm leading-relaxed"
@@ -71,9 +72,9 @@ export const CreateDCA: React.FC<CreateDCAProps> = ({ onCreate }) => {
                 color: 'var(--footer-text-color, #121212)',
               }}
             >
-              Typically, building automated crypto spending agents involves trusting agent
-              developers or wallet SaaS companies for <strong>key management</strong>. Vincent
-              enables a more secure and simpler process.
+              Typically, liquidation agents involve trusting agent developers or wallet SaaS
+              companies for <strong>key management</strong>. Vincent enables a more secure and
+              simpler process.
             </p>
             <p
               className="text-sm leading-relaxed"
@@ -84,7 +85,7 @@ export const CreateDCA: React.FC<CreateDCAProps> = ({ onCreate }) => {
             >
               The agent operates using permissions securely delegated by you, following strict rules
               you establish during setup—such as authorized abilities. These onchain rules are
-              cryptographically enforced by{' '}
+              cryptographically enforced by Vincent.
               <a
                 href="https://litprotocol.com/"
                 target="_blank"

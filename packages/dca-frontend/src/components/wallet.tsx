@@ -116,7 +116,7 @@ export const Wallet: React.FC = () => {
 
         <Separator />
 
-        <div className="flex items-center justify-between">
+        {/* <div className="flex items-center justify-between">
           <span
             className="text-sm font-medium"
             style={{
@@ -144,7 +144,7 @@ export const Wallet: React.FC = () => {
               {chain.name}
             </span>
           </a>
-        </div>
+        </div> */}
 
         <Separator />
 

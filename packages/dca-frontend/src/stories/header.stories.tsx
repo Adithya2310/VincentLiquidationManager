@@ -31,13 +31,13 @@ type Story = StoryObj<typeof Header>;
 
 export const Default: Story = {
   args: {
-    title: 'Vincent DCA',
+    title: 'Equiblock Liquidity Manager',
   },
 };
 
 export const WithRightButtons: Story = {
   args: {
-    title: 'Vincent DCA',
+    title: 'Equiblock Liquidity Manager',
     rightButton: (
       <>
         <Button variant="secondary-outline" size="sm" className="px-2 sm:px-3">
