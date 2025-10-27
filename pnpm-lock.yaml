@@ -92,8 +92,8 @@ importers:
         specifier: ^1.39.0
         version: 1.39.0
       '@equiblock/vincent-liquidity-manager':
-        specifier: 0.0.1
-        version: 0.0.1(@lit-protocol/vincent-app-sdk@2.2.1(bufferutil@4.0.9)(react@19.0.0)(typescript@5.8.2)(utf-8-validate@5.0.10))(@types/node@20.17.28)(@types/react@19.0.12)(bufferutil@4.0.9)(react@19.0.0)(typescript@5.8.2)(utf-8-validate@5.0.10)
+        specifier: 0.0.2
+        version: 0.0.2(@lit-protocol/vincent-app-sdk@2.2.1(bufferutil@4.0.9)(react@19.0.0)(typescript@5.8.2)(utf-8-validate@5.0.10))(@types/node@20.17.28)(@types/react@19.0.12)(bufferutil@4.0.9)(react@19.0.0)(typescript@5.8.2)(utf-8-validate@5.0.10)
       '@lit-protocol/auth-helpers':
         specifier: ^7.3.0
         version: 7.3.0(bufferutil@4.0.9)(typescript@5.8.2)(utf-8-validate@5.0.10)
@@ -708,8 +708,8 @@ packages:
   '@emnapi/wasi-threads@1.0.1':
     resolution: {integrity: sha512-iIBu7mwkq4UQGeMEM8bLwNK962nXdhodeScX4slfQnRhEMMzvYivHhutCIk8uojvmASXXPC2WNEjwxFWk72Oqw==}
 
-  '@equiblock/vincent-liquidity-manager@0.0.1':
-    resolution: {integrity: sha512-OgWM8griBQqTcgStG6uITETsZUfTEeflGVMQz4WZeFDHKgVkKj5kdZ1cO83M1PH3NBtj825131gdsQ4p5igOmQ==}
+  '@equiblock/vincent-liquidity-manager@0.0.2':
+    resolution: {integrity: sha512-MCdmBsa3m92lkt0R8K/cRv87nHwDhDdT1cL7BAsYEYRpjCj6s2yQXUiXOPKjpyW+t8N6MhRCJaZqYZrMRSLILw==}
     peerDependencies:
       '@lit-protocol/vincent-app-sdk': ^2.0.0
 
@@ -9848,7 +9848,7 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
-  '@equiblock/vincent-liquidity-manager@0.0.1(@lit-protocol/vincent-app-sdk@2.2.1(bufferutil@4.0.9)(react@19.0.0)(typescript@5.8.2)(utf-8-validate@5.0.10))(@types/node@20.17.28)(@types/react@19.0.12)(bufferutil@4.0.9)(react@19.0.0)(typescript@5.8.2)(utf-8-validate@5.0.10)':
+  '@equiblock/vincent-liquidity-manager@0.0.2(@lit-protocol/vincent-app-sdk@2.2.1(bufferutil@4.0.9)(react@19.0.0)(typescript@5.8.2)(utf-8-validate@5.0.10))(@types/node@20.17.28)(@types/react@19.0.12)(bufferutil@4.0.9)(react@19.0.0)(typescript@5.8.2)(utf-8-validate@5.0.10)':
     dependencies:
       '@lit-protocol/vincent-ability-sdk': 2.2.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       '@lit-protocol/vincent-app-sdk': 2.2.1(bufferutil@4.0.9)(react@19.0.0)(typescript@5.8.2)(utf-8-validate@5.0.10)
@@ -10782,7 +10782,7 @@ snapshots:
   '@jest/console@29.7.0':
     dependencies:
       '@jest/types': 29.6.3
-      '@types/node': 20.17.28
+      '@types/node': 22.13.14
       chalk: 4.1.2
       jest-message-util: 29.7.0
       jest-util: 29.7.0
@@ -10845,7 +10845,7 @@ snapshots:
     dependencies:
       '@jest/types': 29.6.3
       '@sinonjs/fake-timers': 10.3.0
-      '@types/node': 20.17.28
+      '@types/node': 22.13.14
       jest-message-util: 29.7.0
       jest-mock: 29.7.0
       jest-util: 29.7.0
@@ -10867,7 +10867,7 @@ snapshots:
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
       '@jridgewell/trace-mapping': 0.3.25
-      '@types/node': 20.17.28
+      '@types/node': 22.13.14
       chalk: 4.1.2
       collect-v8-coverage: 1.0.2
       exit: 0.1.2
@@ -12971,7 +12971,7 @@ snapshots:
 
   '@spruceid/siwe-parser@2.1.2':
     dependencies:
-      '@noble/hashes': 1.7.1
+      '@noble/hashes': 1.8.0
       apg-js: 4.4.0
       uri-js: 4.4.1
       valid-url: 1.0.9
@@ -17499,7 +17499,7 @@ snapshots:
     dependencies:
       '@jest/types': 29.6.3
       '@types/graceful-fs': 4.1.9
-      '@types/node': 20.17.28
+      '@types/node': 22.13.14
       anymatch: 3.1.3
       fb-watchman: 2.0.2
       graceful-fs: 4.2.11
@@ -17573,7 +17573,7 @@ snapshots:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.17.28
+      '@types/node': 22.13.14
       chalk: 4.1.2
       emittery: 0.13.1
       graceful-fs: 4.2.11
@@ -17601,7 +17601,7 @@ snapshots:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.17.28
+      '@types/node': 22.13.14
       chalk: 4.1.2
       cjs-module-lexer: 1.4.3
       collect-v8-coverage: 1.0.2
@@ -17666,7 +17666,7 @@ snapshots:
     dependencies:
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 20.17.28
+      '@types/node': 22.13.14
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       emittery: 0.13.1
